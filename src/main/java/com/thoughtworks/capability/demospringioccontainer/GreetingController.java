@@ -4,13 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @RestController
 public class GreetingController {
-
     private final GreetingService greetingService;
 
     @Autowired
     public GreetingController(GreetingService greetingService) {
+        System.out.println("GreetingController initialized at" + new Date());
         this.greetingService = greetingService;
     }
 
@@ -18,5 +20,4 @@ public class GreetingController {
     public String greet() {
         return greetingService.sayHi();
     }
-
 }
